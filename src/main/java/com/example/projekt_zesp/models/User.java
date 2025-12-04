@@ -30,7 +30,7 @@ public class User implements UserDetails {
     private String password;
 
     @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
+    public Collection<? extends GrantedAuthority> getAuthorities() { //wth?
         return List.of(new SimpleGrantedAuthority("ROLE_USER"));
     }
 
