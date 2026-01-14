@@ -31,3 +31,9 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Python ###
+__pycache__
+.venv
+.env
+.DS_Store
