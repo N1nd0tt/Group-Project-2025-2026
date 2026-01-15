@@ -8,4 +8,5 @@ dependencies = [
     "fastapi[standard]>=0.128.0",
     "langchain>=1.2.0",
     "python-dotenv>=1.2.1",
+    "langchain-google-genai>=0.0.5",
 ]

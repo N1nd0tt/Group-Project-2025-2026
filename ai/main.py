@@ -2,13 +2,20 @@ import uvicorn
 from fastapi import FastAPI
 
 
+from dotenv import load_dotenv
+from src.routes import game, generation
+
+load_dotenv()
+
 app = FastAPI()
+
+app.include_router(game.router)
+app.include_router(generation.router)
 
 
 @app.get("/")
 async def root():
-    return {"Hello": "World"}
-
+    return {"Hello": "AI Dungeon Master API"}
 
 
 if __name__ == "__main__":

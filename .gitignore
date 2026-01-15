@@ -1,9 +1,9 @@
 HELP.md
 target/
-.mvn/wrapper/maven-wrapper.jar
+back_end/.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-
+.idea/
 ### STS ###
 .apt_generated
 .classpath
@@ -14,7 +14,7 @@ target/
 .sts4-cache
 
 ### IntelliJ IDEA ###
-.idea
+back_end/.idea
 *.iws
 *.iml
 *.ipr
@@ -31,3 +31,9 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Python ###
+__pycache__
+.venv
+.env
+.DS_Store
