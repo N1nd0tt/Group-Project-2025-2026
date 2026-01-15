@@ -1,0 +1,117 @@
+### Authentication Tests
+
+# Register a new user
+POST http://localhost:7777/auth/register
+Content-Type: application/json
+
+{
+  "id": "user1",
+  "login": "user1",
+  "password": "password123"
+}
+
+### Login to get the token
+POST http://localhost:7777/auth/login
+Content-Type: application/json
+
+{
+  "username": "user1",
+  "password": "password123"
+}
+
+### Save the token from the login response
+> {% set auth_token = {{response.body.token}} %}
+
+---
+
+### GameController Tests
+
+# Create a new game
+POST http://localhost:7777/games
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "id": "game1",
+  "name": "Chess",
+  "owner": "user1",
+  "players": []
+}
+
+### Add a player to a game
+POST http://localhost:7777/games/game1/players
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "id": "player1",
+  "name": "John Doe"
+}
+
+### Remove a player from a game
+DELETE http://localhost:7777/games/game1/players/player1
+Authorization: Bearer {{auth_token}}
+
+### Remove a game
+DELETE http://localhost:7777/games/game1
+Authorization: Bearer {{auth_token}}
+
+### Get game info
+GET http://localhost:7777/games/game1
+Authorization: Bearer {{auth_token}}
+
+### Get all games by owner
+GET http://localhost:7777/games/owner/user1
+Authorization: Bearer {{auth_token}}
+
+---
+
+### HistoryController Tests
+
+# Save a new history
+POST http://localhost:7777/histories
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "gameId": "game1",
+  "owner": "user1",
+  "status": "ended",
+  "details": "Game finished successfully"
+}
+
+### Get histories by owner
+GET http://localhost:7777/histories/owner/user1
+Authorization: Bearer {{auth_token}}
+
+### Delete a history
+DELETE http://localhost:7777/histories/1
+Authorization: Bearer {{auth_token}}
+
+---
+
+### InvitationController Tests
+
+# Send an invitation
+POST http://localhost:7777/invitations
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "senderId": "user1",
+  "receiverId": "user2",
+  "gameId": "game1",
+  "status": "pending"
+}
+
+### Get received invitations
+GET http://localhost:7777/invitations/received/user2
+Authorization: Bearer {{auth_token}}
+
+### Get sent invitations
+GET http://localhost:7777/invitations/sent/user1
+Authorization: Bearer {{auth_token}}
+
+### Update invitation status
+PUT http://localhost:7777/invitations/1/status?status=accepted
+Authorization: Bearer {{auth_token}}
