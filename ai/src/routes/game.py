@@ -3,15 +3,19 @@ from src.models import (
     GameActionRequest,
     GameActionResponse
 )
-from src.llm.dungeon_master import process_game_action
+    GameActionResponse
+)
+from fastapi import Request
 
-router = APIRouter(prefix="/dm", tags=["Dungeon Master"])
+
+router= APIRouter(prefix="/dm", tags=["Dungeon Master"])
 
 
-@router.post("/chat", response_model=GameActionResponse)
-async def chat_interaction(request: GameActionRequest):
+@ router.post("/chat", response_model=GameActionResponse)
+async def chat_interaction(request: GameActionRequest, app_req: Request):
     try:
-        response = await process_game_action(request)
+        dm= app_req.app.state.dm
+        response= await dm.process_game_action(request)
         return response
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

@@ -41,3 +41,22 @@ class GameActionRequest(BaseModel):
 class GameActionResponse(BaseModel):
     response_text: str
     updated_state: GameState
+
+
+class CharacterGenerationRequest(BaseModel):
+    name: Optional[str] = Field(None, description="Name of the character")
+    race: Optional[str] = Field(
+        None, description="Race of the character (e.g., Human, Elf)")
+    character_class: Optional[str] = Field(
+        None, description="Class of the character (e.g., Warrior, Mage)")
+    level: int = Field(1, ge=1, le=20, description="Level of the character")
+    temperature: float = Field(0.7, ge=0.0, le=1.0)
+
+
+class CharacterGenerationResponse(BaseModel):
+    name: str
+    race: str
+    character_class: str
+    backstory: str
+    personality: str
+    stats: dict
