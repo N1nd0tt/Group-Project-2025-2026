@@ -6,7 +6,7 @@ import styles from './Dashboard.module.css';
 const Dashboard = () => {
     // Mock data
     const user = {
-        name: "Dungeon Master",
+        name: "Name surname",
         title: "Level 12 Game Master",
         bio: "Exploring dungeons and slaying dragons since 2015. Always looking for a new adventure.",
         stats: {
