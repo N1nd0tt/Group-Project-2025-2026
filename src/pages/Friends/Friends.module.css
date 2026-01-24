@@ -1,0 +1,127 @@
+.container {
+    padding-bottom: 2rem;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.25rem;
+}
+
+.header p {
+    color: var(--color-text-muted);
+}
+
+.searchBar {
+    margin-bottom: 2rem;
+    max-width: 400px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-md);
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.avatarAction {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--color-bg-input);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--color-text-main);
+    position: relative;
+}
+
+.avatarAction::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid var(--color-bg-card);
+}
+
+.online::after {
+    background-color: #22c55e;
+}
+
+.offline::after {
+    background-color: #94a3b8;
+}
+
+.busy::after {
+    background-color: #ef4444;
+}
+
+.moreBtn {
+    color: var(--color-text-muted);
+}
+
+.cardBody {
+    margin-bottom: 1.5rem;
+    flex: 1;
+}
+
+.cardBody h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+}
+
+.activity {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+}
+
+.cardFooter {
+    border-top: 1px solid var(--color-border);
+    padding-top: 1rem;
+}
+
+.actionBtn {
+    width: 100%;
+    gap: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+}
