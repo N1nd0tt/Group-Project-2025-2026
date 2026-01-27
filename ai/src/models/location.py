@@ -1,8 +1,6 @@
 from typing import TypedDict
-
 from pydantic import BaseModel, Field
-
-from src.models.world import Region, BasicWorldInfo, Society
+from src.models.setting import Region, BasicInfo, Society
 
 
 class Location(BaseModel):
@@ -14,20 +12,9 @@ class Location(BaseModel):
                              description="A brief description of the location")
 
 
-class GenerateLocationsRequest(BaseModel):
-    region: Region = Field(..., description="The region where the location is found")
-    number_of_locations: int = Field(..., description="Number of locations to generate")
-    world: BasicWorldInfo = Field(..., description="Information about the world in which the location exists")
-    society: Society = Field(..., description="Details about the society in the world")
-
-
-class GenerateLocationsResponse(BaseModel):
-    locations: list[Location] = Field(..., description="The generated location details")
-
-
 class LocationsState(TypedDict):
     region: Region
     number_of_locations: int
-    world: BasicWorldInfo
+    world: BasicInfo
     society: Society
     locations: list[Location]

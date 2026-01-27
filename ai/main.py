@@ -1,24 +1,11 @@
 import uvicorn
 from fastapi import FastAPI
-
 from dotenv import load_dotenv
-from src.routes import generate
+from src.db.db import lifespan
+from src.api import api_router
 
-# GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-1.5-flash")
-
-#
-# @asynccontextmanager
-# async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
-#     # Initialize Dungeon Master
-#     app.state.dm = DungeonMaster(model=GEMINI_MODEL)
-#     yield
-#     # Cleanup if needed
-#     print("Closing AI Dungeon Master API...")
-#
-
-app = FastAPI()
-
-app.include_router(generate.router)
+app = FastAPI(lifespan=lifespan)
+app.include_router(api_router)
 
 
 @app.get("/")

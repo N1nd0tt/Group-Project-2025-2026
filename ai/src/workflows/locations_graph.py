@@ -1,5 +1,5 @@
 from langgraph.graph import StateGraph
-from ai.src.llm.llm import llm
+from ai.src.llm import llm
 from src.models.location import LocationsState
 from src.nodes.location import LocationsGenerationNodes
 
