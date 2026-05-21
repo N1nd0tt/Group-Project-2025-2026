@@ -1,0 +1,180 @@
+Podstawowe funkcje (wysoki priorytet):
+
+
+
+
+1) System użytkowników i logowania
+
+Rejestracja, logowanie, reset hasła
+
+Profile graczy (nazwa, avatar, statystyki)
+
+Role: gracz, mistrz gry, admin
+
+
+2) Integracja z bazą danych (PostgreSQL)
+
+Przechowywanie danych użytkowników, kampanii, sesji
+
+Historia rzutów kośćmi, logi działań
+
+
+3) Rzuty kośćmi (d4, d6, d8, d10, d12, d20, itp.)
+
+Generowanie losowych wyników
+
+API do rzutów (/roll?type=d20&count=3)
+
+Historia rzutów dla każdej sesji
+
+Efekty specjalne (np. „Critical Hit!”, „Epic Fail!”)
+
+
+4) Tworzenie i zarządzanie kampaniami
+
+Zakładanie nowej kampanii (nazwa, opis, gracze)
+
+Dołączanie do istniejącej kampanii
+
+Przechowywanie i wczytywanie stanu sesji
+
+Historia wydarzeń w kampanii
+
+
+5) AI Asystent (Dungeon Master AI)
+
+Generowanie opisów świata, postaci, wydarzeń
+
+Tworzenie fabuły w oparciu o poprzednie wydarzenia
+
+Odpowiadanie na komendy graczy (chat z AI)
+
+Regulacja tonu, poziomu losowości (temperature)
+
+
+6) Frontend (React? / HTML?)
+
+Interfejs webowy: logowanie, panel gracza, rzut kością, czat
+
+Widok sesji z historią wydarzeń
+
+Panel kampanii (lista, przyciski „Rozpocznij”, „Dołącz”)
+
+
+7) Backend (Spring Boot)
+
+REST API (autoryzacja, sesje, rzuty, kampanie, AI)
+
+JWT lub sesje HTTP
+
+Integracja z PostgreSQL
+
+
+
+
+
+
+
+Średni priorytet (warto dodać):
+
+
+
+
+1) System czatu dla graczy
+
+Komunikacja w czasie rzeczywistym (WebSocket)
+
+Czat graczy + odpowiedzi AI
+
+Historia rozmów zapisana w bazie danych
+
+
+2) Zarządzanie postaciami
+
+Tworzenie postaci z atrybutami (Siła, Zręczność itd.)
+
+Zapisywanie statystyk i ekwipunku
+
+Edycja postaci przez użytkownika
+
+
+3) Panel administracyjny
+
+Zarządzanie użytkownikami i kampaniami
+
+Podgląd logów systemowych
+
+Statystyki użycia (ile kampanii, aktywni gracze itd.)
+
+
+4) System zapisów i kontynuacji gry
+
+Autozapis sesji (np. co 10 minut lub przy zakończeniu)
+
+Wczytywanie ostatniego stanu kampanii
+
+Możliwość eksportu zapisów
+
+
+5) Wizualny interfejs dla kampanii
+
+Prosty edytor mapy lub siatki (grid)
+
+Ikony graczy, potworów i obiektów
+
+Opcjonalnie: miniatury 2D
+
+
+6) Zarządzanie rzutami i wynikami
+
+Statystyki rzutów dla gracza
+
+Najczęściej używane kości
+
+Porównywanie wyników między graczami
+
+
+
+
+
+
+
+
+Dodatkowe i opcjonalne pomysły (niski priorytet):
+
+
+
+
+1) Mobilna wersja aplikacji
+
+React Native (Android/iOS)
+
+Funkcje: logowanie, czat, rzuty, podgląd sesji
+
+
+2) Aplikacja desktopowa
+
+Electron lub Tauri (na Windows/Linux/Mac)
+
+Oparty na tej samej wersji webowej
+
+
+3) Tryb offline
+
+Możliwość prowadzenia sesji bez połączenia z serwerem
+
+Synchronizacja po powrocie online
+
+
+4) Generacja obrazów
+
+AI generujące ilustracje miejsc, potworów i NPC
+
+Opcjonalnie: integracja z modelami Stable Diffusion / DALL·E
+
+
+5) Ranking i osiągnięcia
+
+Punkty doświadczenia, medale za rozegrane kampanie
+
+Tablica wyników
